@@ -13,10 +13,11 @@ const Customer = mongoose.model('Customer', new mongoose.Schema({
         required: true,
         minlength: 5,
         maxlength: 50,
-    },
+    },  
     phone: {
-      type: Number,
-      required: true,
+        type: Number,
+        required: true,
+        // unique: true
     }
 
 
@@ -32,7 +33,7 @@ function validateCustomer(customer) {
     const schema = {
         firstname: Joi.string().min(5).max(50).required(),
         lastname: Joi.string().min(5).max(50).required(),
-        phone: Joi.required()
+        phone: Joi.number().required()
     };
     return Joi.validate(customer, schema);
 }

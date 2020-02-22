@@ -11,21 +11,21 @@ const Driver = mongoose.model('Driver', new mongoose.Schema({
     email: {
         type: String,
         required: true,
-        minlength: 5,
-        maxlength: 255,
         unique: true
     },
     phone: {
-      type: String,
-      required: true
+        type: Number,
+        required: true,
+        // unique: true
     }
     // timestamps: true
 }));
  
 function validateDriver(driver) {
     const schema = {
-        name: Joi.string().min(5).max(50).required(),
-        email: Joi.string().min(5).max(255).required().email(),
+        fullname: Joi.string().min(5).max(50).required(),
+        email: Joi.string().required().email(),
+        phone: Joi.number().required()
     };
     return Joi.validate(driver, schema);
 }
