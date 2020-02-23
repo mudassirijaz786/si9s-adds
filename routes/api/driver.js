@@ -32,7 +32,7 @@ router.post('/posts', verifyToken, (req, res) => {
     } else {
       res.json({
         message: 'Post created...',
-        authData
+        id: authData.driver._id
       });
     }
   });
@@ -79,7 +79,7 @@ router.get("/:id", async (req, res)=>{
 
 router.put('/:id', async (req, res) => {
   const _id = req.params.id;
-
+  // findByIdAndUpdate can also be used
   Driver.findOneAndUpdate({ _id },
     req.body,
     { new: true },
@@ -94,6 +94,7 @@ router.put('/:id', async (req, res) => {
 router.delete("/trash/:id", async (req, res) =>{
 
   const _id = req.params.id;
+  // findByIdAndUpdate can also be used
   Driver.findOneAndRemove({ _id }, (err, driver) => {
       if (err) {
         res.status(400).json(err);

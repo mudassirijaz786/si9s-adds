@@ -8,10 +8,11 @@ const Payment = mongoose.model('Payment', new mongoose.Schema({
         minlength: 5,
         maxlength: 50
     },
-    notification: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Notification'
-    },
+    
+    // notification: {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'Notification'
+    // },
     // timestamps: true
 }));
  

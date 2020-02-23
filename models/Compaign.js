@@ -15,11 +15,11 @@ const Compaign = mongoose.model('Compaign', new mongoose.Schema({
         ref: 'Customer'
     },
     startDate: {
-        type: String,
+        type: Date,
         required: true
     },
     endDate: {
-        type: String,
+        type: Date,
         required: true
     },
     area: {
@@ -30,10 +30,10 @@ const Compaign = mongoose.model('Compaign', new mongoose.Schema({
         type: Number,
         required: true
     },
-    payment: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Payment'
-    },
+    // payment: {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'Payment'
+    // },
 
     // notification: {
     //     type: mongoose.Schema.Types.ObjectId,
@@ -45,9 +45,9 @@ const Compaign = mongoose.model('Compaign', new mongoose.Schema({
  
 function validateCompaign(compaign) {
     const schema = {
-        price: Joi.number().min(5).max(50).required(),
+        price: Joi.number().required(),
         url: Joi.string().required(),
-        startDate: Joi.string().required(),
+        startDate: Joi.date().required(),     
         endDate: Joi.string().required(),
         numberOfCars: Joi.number().required()
     };

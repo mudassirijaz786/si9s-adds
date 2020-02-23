@@ -18,8 +18,12 @@ const Customer = mongoose.model('Customer', new mongoose.Schema({
         type: Number,
         required: true,
         // unique: true
-    }
+    },
 
+    // date: {
+    //     type: Date,
+    //     default: Date.now
+    // }
 
     // paymentMethod: {
     //   type: mongoose.Schema.Types.ObjectId,
