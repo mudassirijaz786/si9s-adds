@@ -9,6 +9,7 @@ const Area = mongoose.model('Area', new mongoose.Schema({
         maxlength: 50
     },
     // timestamps: true
+    // polygon .. aray lat long
 }));
  
 function validateArea(area) {
