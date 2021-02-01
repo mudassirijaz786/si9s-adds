@@ -3,7 +3,7 @@ const mongoose =require("mongoose")
 
 const connectDB = async () => {
 	try {
-		await mongoose.connect("mongodb://si9s:si9spassword@ds062448.mlab.com:62448/si9s", {
+		await mongoose.connect("DB URL", {
 			useNewUrlParser: true,
 			useCreateIndex: true,
 			useFindAndModify: false,
